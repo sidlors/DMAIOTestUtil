@@ -26,10 +26,6 @@ public class UnzipFile {
 	}
 
 	public String getMD5Digest(String text) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		// if (logger.isDebugEnabled()){
-		// logger.debug("MD5");
-		// }
-
 		MessageDigest md;
 		md = MessageDigest.getInstance("MD5");
 		byte[] md5hash = new byte[32];
@@ -39,10 +35,6 @@ public class UnzipFile {
 	}
 
 	private static String convertToHex(byte[] data) {
-		// if (logger.isDebugEnabled()){
-		// logger.debug("convertToHex");
-		// }
-
 		StringBuffer buf = new StringBuffer();
 		for (int i = 0; i < data.length; i++) {
 			int halfbyte = (data[i] >>> 4) & 0x0F;
