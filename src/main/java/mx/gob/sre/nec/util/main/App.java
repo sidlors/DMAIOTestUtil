@@ -16,7 +16,7 @@ public class App {
 
 	private FilterFile filter;
 	private UnzipFile unziper;
-	private RenameFile renamerFile;
+	private RenameFile renamer;
 
 	public static void main(String[] args) throws Exception {
 		// String endPoint="http://localhost:7101/IndraSid/ws/Afiswww?WSDL";
@@ -112,13 +112,13 @@ public class App {
 		}
 		filter = new FilterFile();
 		unziper = new UnzipFile();
-		renamerFile=new RenameFile();
+		renamer=new RenameFile();
+		System.out.println("Extrayendo archivos...");
 		List<File> zipFiles = filter.listFilesForFolder(folder,".zip");
 		unziper.unzipFiles(zipFiles);
-		List<File>filesWSQ=filter.listFilesForFolder(folder, ".wsq");
-		renamerFile.renameFiles(filesWSQ);
+		System.out.println("Renombrando archivos...");
+		renamer.renameFiles(filter.listFilesForFolder(folder, ".wsq"));
 		
-		System.out.println("\n\nTotal de archivos: "+zipFiles.size());
 	}
 
 }
